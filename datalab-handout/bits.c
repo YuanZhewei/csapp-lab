@@ -174,7 +174,8 @@ int isTmax(int x) {
  *   Rating: 2
  */
 int allOddBits(int x) {
-  return 2;
+    const int mask = 0xAA << 24 | 0xAA << 16 | 0xAA << 8 | 0xAA;
+    return !((x & mask) ^ mask);
 }
 /*
  * negate - return -x
