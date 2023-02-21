@@ -143,7 +143,7 @@ NOTES:
  *   Rating: 1
  */
 int bitXor(int x, int y) {
-    return ~(x & y) & ~(~x & ~y);
+  return ~(x & y) & ~(~x & ~y);
 }
 /*
  * tmin - return minimum two's complement integer
@@ -152,7 +152,7 @@ int bitXor(int x, int y) {
  *   Rating: 1
  */
 int tmin(void) {
-    return 1 << 31;
+  return 1 << 31;
 }
 //2
 /*
@@ -163,7 +163,7 @@ int tmin(void) {
  *   Rating: 1
  */
 int isTmax(int x) {
-    return !(~(x ^ (x + 1))) & !!(~x);
+  return !(~(x ^ (x + 1))) & !!(~x);
 }
 /*
  * allOddBits - return 1 if all odd-numbered bits in word set to 1
@@ -174,8 +174,8 @@ int isTmax(int x) {
  *   Rating: 2
  */
 int allOddBits(int x) {
-    const int mask = 0xAA << 24 | 0xAA << 16 | 0xAA << 8 | 0xAA;
-    return !((x & mask) ^ mask);
+  const int mask = 0xAA << 24 | 0xAA << 16 | 0xAA << 8 | 0xAA;
+  return !((x & mask) ^ mask);
 }
 /*
  * negate - return -x
@@ -198,7 +198,9 @@ int negate(int x) {
  *   Rating: 3
  */
 int isAsciiDigit(int x) {
-  return 2;
+  const int sign = 1 << 31;
+
+  return !(((x + ~0x29 + 1) & sign) | ((0x40 + ~x + 1) & sign));
 }
 /*
  * conditional - same as x ? y : z
