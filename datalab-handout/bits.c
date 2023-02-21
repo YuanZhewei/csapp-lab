@@ -222,7 +222,7 @@ int conditional(int x, int y, int z) {
  */
 int isLessOrEqual(int x, int y) {
   const int sign = 1 << 31;
-  return !!((y + ~x + 1) & sign);
+  return !((y + ~x + 1) & sign);
 }
 //4
 /*
