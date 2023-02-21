@@ -200,7 +200,7 @@ int negate(int x) {
 int isAsciiDigit(int x) {
   const int sign = 1 << 31;
 
-  return !(((x + ~0x29 + 1) & sign) | ((0x40 + ~x + 1) & sign));
+  return !(((x + ~0x30 + 1) & sign) | ((0x39 + ~x + 1) & sign));
 }
 /*
  * conditional - same as x ? y : z
