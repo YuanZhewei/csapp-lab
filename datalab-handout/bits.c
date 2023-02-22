@@ -221,7 +221,9 @@ int conditional(int x, int y, int z) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return ((y >> 31) & !!(x >> 31)) | !((y + ~x + 1) >> 31);
+  const int signx = x >> 31;
+  const int signy = y >> 31;
+  return (!signy & signx) | !(signy & !signx) |!((y + ~x + 1) >> 31);
 }
 //4
 /*
