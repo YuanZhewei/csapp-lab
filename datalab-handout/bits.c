@@ -223,7 +223,7 @@ int conditional(int x, int y, int z) {
 int isLessOrEqual(int x, int y) {
   const int signx = x >> 31;
   const int signy = y >> 31;
-  return (!signy & signx) | !(signy & !signx) |!((y + ~x + 1) >> 31);
+  return (!signy & signx) | (!(signy & !signx) & !((y + ~x + 1) >> 31));
 }
 //4
 /*
