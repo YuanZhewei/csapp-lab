@@ -252,7 +252,7 @@ int logicalNeg(int x) {
  */
 int howManyBits(int x) {
   int sign = x >> 31;
-  x = (sign & (~x + 1)) | (~sign & x);
+  x = (sign & (~x)) | (~sign & x);
   int flag = !!(x >> 16);
   int cnt16 = flag << 4;
   x >>= cnt16;
@@ -273,7 +273,7 @@ int howManyBits(int x) {
   int cnt1 = flag;
   x >>= cnt1;
 
-  return cnt16 + cnt8 + cnt4 + cnt2 + cnt1 + x + ~sign;
+  return cnt16 + cnt8 + cnt4 + cnt2 + cnt1 + x + 1;
 }
 //float
 /*
