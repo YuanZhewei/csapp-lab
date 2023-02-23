@@ -251,26 +251,27 @@ int logicalNeg(int x) {
  *  Rating: 4
  */
 int howManyBits(int x) {
-  int sign = x >> 31;
+  int sign, flag, cnt16, cnt8, cnt4, cnt2, cnt1;
+  sign = x >> 31;
   x = (sign & (~x)) | (~sign & x);
-  int flag = !!(x >> 16);
-  int cnt16 = flag << 4;
+  flag = !!(x >> 16);
+  cnt16 = flag << 4;
   x >>= cnt16;
 
   flag = !!(x >> 8);
-  int cnt8 = flag << 3;
+  cnt8 = flag << 3;
   x >>= cnt8;
 
   flag = !!(x >> 4);
-  int cnt4 = flag << 2;
+  cnt4 = flag << 2;
   x >>= cnt4;
 
   flag = !!(x >> 2);
-  int cnt2 = flag << 1;
+  cnt2 = flag << 1;
   x >>= cnt2;
 
   flag = !!(x >> 1);
-  int cnt1 = flag;
+  cnt1 = flag;
   x >>= cnt1;
 
   return cnt16 + cnt8 + cnt4 + cnt2 + cnt1 + x + 1;
