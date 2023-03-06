@@ -341,7 +341,7 @@ int floatFloat2Int(unsigned uf) {
 unsigned floatPower2(int x) {
   const int INF = 0x2ff << 23;
   int e = x + 127;
-  if (e < 0)
+  if (e <= 0)
     return 0;
   if (e >= 255)
     return INF;
