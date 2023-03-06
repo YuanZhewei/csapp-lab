@@ -339,11 +339,11 @@ int floatFloat2Int(unsigned uf) {
  *   Rating: 4
  */
 unsigned floatPower2(int x) {
-  const int INF = 0xff << 23;
-  int e = x + 127;
-  if (e <= 0)
+  if (x < - 150)
     return 0;
-  if (e >= 255)
-    return INF;
-  return e << 23;
+  if (x <= -127)
+    return x << (x + 127);
+  if (x <= 128)
+    return (x + 128) << 23;
+  return 0x7F800000;
 }
