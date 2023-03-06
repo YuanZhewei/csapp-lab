@@ -313,7 +313,7 @@ int floatFloat2Int(unsigned uf) {
   unsigned s = uf >> 31;
   int e = ((uf & 0x7f800000) >> 23) - 127;
   unsigned f = (uf & 0x007fffff) | 0x00800000;
-  if (e <= 0)
+  if (e < 0)
     return 0;
   if (e > 30)
     return 0x80000000;
