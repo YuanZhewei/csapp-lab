@@ -311,7 +311,7 @@ unsigned floatScale2(unsigned uf) {
  */
 int floatFloat2Int(unsigned uf) {
   unsigned s = uf >> 31;
-  unsigned e = ((uf & 0x7f800000) >> 23) - 127;
+  int e = ((uf & 0x7f800000) >> 23) - 127;
   unsigned f = (uf & 0x007fffff) | 0x00800000;
   if (e <= 0)
     return 0;
