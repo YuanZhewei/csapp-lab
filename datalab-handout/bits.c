@@ -344,6 +344,6 @@ unsigned floatPower2(int x) {
   if (x <= -127)
     return x << (x + 127);
   if (x <= 128)
-    return (x + 128) << 23;
+    return (x + 127) << 23;
   return 0x7F800000;
 }
